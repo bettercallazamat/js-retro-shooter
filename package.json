@@ -1,0 +1,23 @@
+{
+  "name": "js-retro-shooter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bettercallazamat/js-retro-shooter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bettercallazamat/js-retro-shooter/issues"
+  },
+  "homepage": "https://github.com/bettercallazamat/js-retro-shooter#readme",
+  "dependencies": {
+    "phaser": "^3.24.1"
+  }
+}
