@@ -14,7 +14,8 @@ export default class Player extends Entity {
     this.cursors = scene.input.keyboard.createCursorKeys();
   }
 
-  movements() {
+  update() {
+    // MOVEMENTS
     let speed = this.getData('speed')
     if (this.cursors.left.isDown) {
       this.body.setVelocity(-speed, 0);
@@ -27,14 +28,21 @@ export default class Player extends Entity {
     } else {
       this.body.setVelocity(0, 0);
     }
-  }
 
-  shoots() {
+    //          //
+    // SHOOTING //
+    //          //
+    this.keySpace = this.scene.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    )
 
-  }
+    if (this.keySpace.isDown) {
+      this.setData('isShooting', true);
+    } else {
+      this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
+      this.setData('isShooting', false);
+    }
 
-  update() {
-    // this.body.setVelocity(0, 0);
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
     this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 
@@ -43,12 +51,13 @@ export default class Player extends Entity {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1);
       } else {
         const shot = new PlayerShot(this.scene, this.x, this.y - 50);
-        this.scene.playerShot.add(shot);
+        this.scene.playerShots.add(shot);
         this.setData('timerShootTick', 0);
       }
     }
   }
 
+  // Events on destroy //
   onDestroy() {
     this.scene.time.addEvent({
       delay: 1000,

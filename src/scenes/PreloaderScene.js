@@ -82,6 +82,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.load.spritesheet('spaceship-1', 'src/assets/player/spaceship-1.png', { frameWidth: 100 });
     this.load.spritesheet('player-fire2', 'src/assets/player/fire2.png', { frameWidth: 100 });
+
+    this.load.spritesheet('enemy-spaceship', 'src/assets/enemies/enemy1.png', { frameWidth: 25 });
+    this.load.spritesheet('enemy-explosion', 'src/assets/explosions/explosion3.png', { frameWidth: 100, frameHeight: 100 });
+
   }
 
   init() {
