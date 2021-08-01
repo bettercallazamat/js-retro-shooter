@@ -48,5 +48,8 @@
     "webpack": "^4.43.0",
     "webpack-merge": "^4.2.2",
     "regenerator-runtime": "^0.13.5"
+  },
+  "engines": {
+    "node": "12.13"
   }
 }
