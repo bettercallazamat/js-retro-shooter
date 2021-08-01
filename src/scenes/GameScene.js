@@ -11,6 +11,7 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
+    score = 0
     this.add.image(400, 300, 'game-bg').setScale(2);
 
     this.anims.create({

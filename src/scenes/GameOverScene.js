@@ -26,7 +26,6 @@ export default class GameOverScene extends Phaser.Scene {
         postScore(input, score);
       }
       this.element.classList.add('hidden');
-      score = 0;
       this.scene.start('Menu');
     }
   }
