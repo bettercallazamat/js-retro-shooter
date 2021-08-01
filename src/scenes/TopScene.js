@@ -1,13 +1,9 @@
-import 'phaser';
-import { getScores } from '../helpers/apiHandler'
+import Phaser from 'phaser';
+import { getScores } from '../helpers/apiHandler';
 
 export default class TopScene extends Phaser.Scene {
   constructor() {
     super('Top');
-  }
-
-  preload() {
-
   }
 
   create() {
@@ -17,11 +13,6 @@ export default class TopScene extends Phaser.Scene {
     }).setOrigin(0.5, 0.5);
 
     getScores().then((scores) => {
-      const scoreStyle = {
-        color: 'red',
-        fontSize: '38px ',
-      };
-
       scores.sort((x, y) => y.score - x.score);
       const space = 50;
       for (let i = 0; i < 5; i += 1) {
@@ -51,5 +42,4 @@ export default class TopScene extends Phaser.Scene {
       this.scene.start('Menu');
     }
   }
-};
-
+}

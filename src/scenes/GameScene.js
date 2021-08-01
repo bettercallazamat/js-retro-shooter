@@ -1,8 +1,9 @@
-import 'phaser';
-import Player from '../entities/Player'
-import EnemySpaceship from '../entities/EnemySpaceship'
+import Phaser from 'phaser';
+import Player from '../entities/Player';
+import EnemySpaceship from '../entities/EnemySpaceship';
 
-let score = 0
+// eslint-disable-next-line import/no-mutable-exports
+let score = 0;
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -11,7 +12,7 @@ class GameScene extends Phaser.Scene {
 
   create() {
     this.add.image(400, 300, 'game-bg').setScale(2);
-    
+
     this.anims.create({
       key: 'enemy-explosion',
       frames: this.anims.generateFrameNumbers('enemy-explosion'),
@@ -21,7 +22,7 @@ class GameScene extends Phaser.Scene {
 
     this.player = new Player(this, 400, 600, 'spaceship-1');
 
-    //SCORE TEXT
+    // SCORE TEXT
     this.playerScore = this.add.text(40, 60, `Score: ${score}`, {
       fontFamily: 'monospace',
       fontSize: 30,
@@ -29,7 +30,7 @@ class GameScene extends Phaser.Scene {
       color: '#fff',
     });
 
-    //PLAYER SHOOTING
+    // PLAYER SHOOTING
     this.playerShots = this.add.group();
 
     for (let i = 0; i < this.playerShots.getChildren().length; i += 1) {
@@ -37,11 +38,11 @@ class GameScene extends Phaser.Scene {
       shot.update();
 
       if (
-        shot.x < -shot.displayWidth ||
-        shot.x > this.game.config.width + shot.displayWidth ||
-        shot.y < -shot.displayHeight * 4 ||
-        shot.y > this.game.config.height + shot.displayHeight
-      ){
+        shot.x < -shot.displayWidth
+        || shot.x > this.game.config.width + shot.displayWidth
+        || shot.y < -shot.displayHeight * 4
+        || shot.y > this.game.config.height + shot.displayHeight
+      ) {
         if (shot) {
           shot.destroy();
         }
@@ -59,8 +60,8 @@ class GameScene extends Phaser.Scene {
 
         if (enemy !== null) {
           this.enemies.add(enemy);
-        };
-    
+        }
+
         this.physics.add.collider(
           this.playerShots,
           this.enemies,
@@ -71,7 +72,7 @@ class GameScene extends Phaser.Scene {
               score += 10;
               this.playerScore.setText(`Score: ${score}`);
             }
-          }
+          },
         );
       },
       callbackScope: this,
@@ -85,15 +86,11 @@ class GameScene extends Phaser.Scene {
         enemy.explode(true, 'enemy-explosion');
       }
     });
-
-
-    
   }
 
   update() {
     this.player.update();
-    
   }
-};
+}
 
-export {GameScene, score};
+export { GameScene, score };

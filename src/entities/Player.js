@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import Entity from './Entity';
 import PlayerShot from './PlayerShot';
 
@@ -6,7 +6,7 @@ export default class Player extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'Player');
     this.setData('speed', 200);
-    //Shooting state info
+    // Shooting state info
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
@@ -16,7 +16,7 @@ export default class Player extends Entity {
 
   update() {
     // MOVEMENTS
-    let speed = this.getData('speed')
+    const speed = this.getData('speed');
     if (this.cursors.left.isDown) {
       this.body.setVelocity(-speed, 0);
     } else if (this.cursors.right.isDown) {
@@ -33,8 +33,8 @@ export default class Player extends Entity {
     // SHOOTING //
     //          //
     this.keySpace = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
-    )
+      Phaser.Input.Keyboard.KeyCodes.SPACE,
+    );
 
     if (this.keySpace.isDown) {
       this.setData('isShooting', true);
@@ -62,13 +62,10 @@ export default class Player extends Entity {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        this.scene.scene.start('GameOver', {score: this.score});
+        this.scene.scene.start('GameOver', { score: this.score });
       },
       callbackScope: this,
       loop: false,
     });
-  };
+  }
 }
-
-
-

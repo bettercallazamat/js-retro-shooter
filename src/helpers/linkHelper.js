@@ -1,27 +1,25 @@
-let linkedInOpener = () => {
-  let url = 'https://www.linkedin.com/in/azamat-nuriddinov/';
+const linkedInOpener = () => {
+  const url = 'https://www.linkedin.com/in/azamat-nuriddinov/';
 
-  let s = window.open(url, '_blank');
-
-  if (s && s.focus) {
-    s.focus();
-  }
-  else if (!s) {
-    window.location.href = url;
-  }
-}
-
-let gitHubOpener = () => {
-  let url = 'https://github.com/bettercallazamat/';
-
-  let s = window.open(url, '_blank');
+  const s = window.open(url, '_blank');
 
   if (s && s.focus) {
     s.focus();
-  }
-  else if (!s) {
+  } else if (!s) {
     window.location.href = url;
   }
-}
+};
 
-export {linkedInOpener, gitHubOpener}
+const gitHubOpener = () => {
+  const url = 'https://github.com/bettercallazamat/';
+
+  const s = window.open(url, '_blank');
+
+  if (s && s.focus) {
+    s.focus();
+  } else if (!s) {
+    window.location.href = url;
+  }
+};
+
+export { linkedInOpener, gitHubOpener };

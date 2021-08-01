@@ -6,7 +6,7 @@ const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/game
 const postScore = async (username, score) => {
   const playerScore = {
     user: username,
-    score: score,
+    score,
   };
 
   const params = {

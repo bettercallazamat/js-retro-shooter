@@ -1,6 +1,6 @@
-import 'phaser';
-import { score } from './GameScene'
-import { postScore } from '../helpers/apiHandler'
+import Phaser from 'phaser';
+import { score } from './GameScene';
+import { postScore } from '../helpers/apiHandler';
 
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -10,7 +10,7 @@ export default class GameOverScene extends Phaser.Scene {
   create() {
     this.add.text(400, 200, 'GAME OVER', { fontSize: 25, fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }).setOrigin(0.5);
     this.add.text(400, 280, `Your score: ${score}`, { fontSize: 25, fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }).setOrigin(0.5);
-    
+
     this.element = document.getElementById('fname');
     this.element.classList.remove('hidden');
 
@@ -30,4 +30,4 @@ export default class GameOverScene extends Phaser.Scene {
       this.scene.start('Menu');
     }
   }
-};
+}
