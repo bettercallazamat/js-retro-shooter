@@ -79,12 +79,14 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('menu-bg', 'src/assets/menu-bg.jpg');
     this.load.image('game-bg', 'src/assets/game-bg.jpg');
     this.load.image('player-fire1', 'src/assets/player/fire1.png')
+    this.load.image('button', 'src/assets/button.png');
 
-    this.load.spritesheet('spaceship-1', 'src/assets/player/spaceship-1.png', { frameWidth: 100 });
+    this.load.spritesheet('spaceship-1', 'src/assets/player/spaceship-1.png', { frameWidth: 100, frameHeight: 100 });
     this.load.spritesheet('player-fire2', 'src/assets/player/fire2.png', { frameWidth: 100 });
+    this.load.spritesheet('player-explosion', 'src/assets/explosions/explosion1.png', { frameWidth: 200 });
 
-    this.load.spritesheet('enemy-spaceship', 'src/assets/enemies/enemy1.png', { frameWidth: 25 });
-    this.load.spritesheet('enemy-explosion', 'src/assets/explosions/explosion3.png', { frameWidth: 100, frameHeight: 100 });
+    this.load.spritesheet('enemy-spaceship', 'src/assets/enemies/enemy1.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('enemy-explosion', 'src/assets/explosions/explosion1.png', { frameWidth: 64 });
 
   }
 
@@ -93,8 +95,15 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
-    this.readyCount++;
-    if (this.readyCount === 1) {
+
+    while (this.readyCount < 3) {
+      this.readyCount++;
+      console.log(this.readyCount);
+    } 
+
+    // this.readyCount++;
+    // console.log(this.readyCount);
+    if (this.readyCount === 3) {
       this.scene.start('Menu');
     }
   }

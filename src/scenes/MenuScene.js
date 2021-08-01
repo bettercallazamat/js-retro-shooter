@@ -7,14 +7,14 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.gameText = this.add.text(400, 300, 'Play', { fontSize: '32px', fill: '#fff' })
-      .setInteractive()
-      .setOrigin(0.5, 0.5);
-    }
+    this.add.image(400, 130, 'logo').setScale(0.5)
+    this.gameButton = new Button(this, 400, 280, 'Play', 'Game');
+    this.topButton = new Button(this, 400, 380, 'The top', 'Top');
+    this.credButton = new Button(this, 400, 480, 'Credits', 'Credits');
+
+  }
     
   update() {
-    this.gameText.on('pointerdown', function (pointer) {
-      this.scene.start('Game');
-    }.bind(this));
+    
   }
 };

@@ -62,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
           this.enemies,
           (playerShot, enemy) => {
             if (enemy) {
-              console.log(playerShot, enemy);
+              // console.log(playerShot, enemy);
               enemy.explode(true, 'enemy-explosion');
               playerShot.destroy();
             }
@@ -73,16 +73,14 @@ export default class GameScene extends Phaser.Scene {
       loop: true,
     });
 
-
-    // // player destroyed upon overlap with enemy ship
-    // this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
-    //   if (!player.getData('isDead') && !enemy.getData('isDead')) {
-    //     player.explode(false, 'sprExplosionPlayer');
-    //     player.onDestroy();
-    //     enemy.explode(true, 'sprExplosion');
-    //     this.sys.game.globals.score = this.score;
-    //   }
-    // });
+    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
+      if (!player.getData('isDead') && !enemy.getData('isDead')) {
+        player.explode(false, 'player-explosion');
+        player.onDestroy();
+        enemy.explode(true, 'enemy-explosion');
+        // this.sys.game.globals.score = this.score;
+      }
+    });
 
 
     

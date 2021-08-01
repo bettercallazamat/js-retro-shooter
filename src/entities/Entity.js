@@ -13,6 +13,7 @@ export default class Entity extends Phaser.GameObjects.Sprite {
   explode(canDestroy, explosionType) {
     if (!this.getData('isDead')) {
       this.setTexture(explosionType);
+      // this.setVisible(false)
       this.play(explosionType);
 
       if (this.shootTimer !== undefined) {
@@ -24,13 +25,17 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.setAngle(0);
       this.body.setVelocity(0, 0);
 
-      this.on('animationcomplete', () => {
-        if (canDestroy) {
-          this.destroy();
-        } else {
-          this.setVisible(false);
-        }
-      }, this);
+      this.on(
+        'animationcomplete',
+        () => {
+          if (canDestroy) {
+            this.destroy();
+          } else {
+            this.setVisible(false);
+          }
+        },
+        this,
+      );
 
       this.setData('isDead', true);
     }
