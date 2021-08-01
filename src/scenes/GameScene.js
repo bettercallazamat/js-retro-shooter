@@ -2,7 +2,9 @@ import 'phaser';
 import Player from '../entities/Player'
 import EnemySpaceship from '../entities/EnemySpaceship'
 
-export default class GameScene extends Phaser.Scene {
+let score = 0
+
+class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
@@ -19,10 +21,15 @@ export default class GameScene extends Phaser.Scene {
 
     this.player = new Player(this, 400, 600, 'spaceship-1');
 
+    //SCORE TEXT
+    this.playerScore = this.add.text(40, 60, `Score: ${score}`, {
+      fontFamily: 'monospace',
+      fontSize: 30,
+      fontStyle: 'bold',
+      color: '#fff',
+    });
 
-
-
-
+    //PLAYER SHOOTING
     this.playerShots = this.add.group();
 
     for (let i = 0; i < this.playerShots.getChildren().length; i += 1) {
@@ -41,15 +48,12 @@ export default class GameScene extends Phaser.Scene {
       }
     }
 
-    //                //
-    // ENEMY SPAWNING //
-    //                //
+    // ENEMY SPAWNING
     this.enemies = this.add.group();
 
     this.time.addEvent({
       delay: Phaser.Math.Between(500, 2000),
       callback() {
-        // This anonymous function spawns the enemies...
         let enemy = null;
         enemy = new EnemySpaceship(this, Phaser.Math.Between(20, this.game.config.width - 20), 0);
 
@@ -62,9 +66,10 @@ export default class GameScene extends Phaser.Scene {
           this.enemies,
           (playerShot, enemy) => {
             if (enemy) {
-              // console.log(playerShot, enemy);
               enemy.explode(true, 'enemy-explosion');
               playerShot.destroy();
+              score += 10;
+              this.playerScore.setText(`Score: ${score}`);
             }
           }
         );
@@ -78,7 +83,6 @@ export default class GameScene extends Phaser.Scene {
         player.explode(false, 'player-explosion');
         player.onDestroy();
         enemy.explode(true, 'enemy-explosion');
-        // this.sys.game.globals.score = this.score;
       }
     });
 
@@ -91,3 +95,5 @@ export default class GameScene extends Phaser.Scene {
     
   }
 };
+
+export {GameScene, score};

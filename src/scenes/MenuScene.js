@@ -13,8 +13,4 @@ export default class MenuScene extends Phaser.Scene {
     this.credButton = new Button(this, 400, 480, 'Credits', 'Credits');
 
   }
-    
-  update() {
-    
-  }
 };

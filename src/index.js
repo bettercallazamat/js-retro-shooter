@@ -1,11 +1,13 @@
 import 'phaser';
+import './assets/styles/styles.css';
 import config from './config';
 import BootScene from './scenes/BootScene';
 import CreditsScene from './scenes/CreditsScene';
 import GameOverScene from './scenes/GameOverScene';
-import GameScene from './scenes/GameScene';
+import {GameScene} from './scenes/GameScene';
 import MenuScene from './scenes/MenuScene';
 import PreloaderScene from './scenes/PreloaderScene';
+import TopScene from './scenes/TopScene';
 
 
 class Game extends Phaser.Game {
@@ -17,6 +19,7 @@ class Game extends Phaser.Game {
     this.scene.add('Game', GameScene);
     this.scene.add('Menu', MenuScene);
     this.scene.add('Preloader', PreloaderScene);
+    this.scene.add('Top', TopScene);
     this.scene.start('Boot');
   }
 }

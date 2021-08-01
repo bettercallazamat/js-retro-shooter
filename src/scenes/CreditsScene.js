@@ -21,5 +21,15 @@ export default class CreditsScene extends Phaser.Scene {
 
     linkedInBtn.on('pointerdown', linkedInOpener, this);
     githubBtn.on('pointerdown', gitHubOpener, this);
-  }
+
+    this.keyENTER = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.ENTER,
+    );
+  };
+
+  update() {
+    if (this.keyENTER.isDown) {
+      this.scene.start('Menu');
+    }
+  };
 };

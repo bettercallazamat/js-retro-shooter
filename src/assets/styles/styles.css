@@ -1,6 +1,24 @@
-@font-face {
-  font-family: '16bit';
-  src: url('../fonts/ConnectionIii-Rj3W.otf') format('otf');
-  font-weight: 400;
-  font-style: normal;
+#fname {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  text-align: center;
+  color: aqua;
+  padding: 15px;
+  border-radius: 10px;
+  border: 4px solid aqua;
+  text-transform: uppercase;
+  position: absolute;
+  top: 350px;
+  left: 280px;
+}
+
+.hidden {
+  display: none;
+}
+
+::placeholder {
+  color: aqua;
+  opacity: 1;
+  text-transform: uppercase;
 }

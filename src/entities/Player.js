@@ -62,7 +62,7 @@ export default class Player extends Entity {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        this.scene.scene.start('Score');
+        this.scene.scene.start('GameOver', {score: this.score});
       },
       callbackScope: this,
       loop: false,
