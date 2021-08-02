@@ -21,6 +21,13 @@ class GameScene extends Phaser.Scene {
       repeat: 0,
     });
 
+    this.anims.create({
+      key: 'player-explosion',
+      frames: this.anims.generateFrameNumbers('player-explosion'),
+      frameRate: 20,
+      repeat: 0,
+    });
+
     this.player = new Player(this, 400, 600, 'spaceship-1');
 
     // SCORE TEXT
