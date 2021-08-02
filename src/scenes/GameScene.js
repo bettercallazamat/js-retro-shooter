@@ -65,10 +65,10 @@ class GameScene extends Phaser.Scene {
       shot.update();
 
       if (
-        shot.x < -shot.displayWidth ||
-        shot.x > this.game.config.width + shot.displayWidth ||
-        shot.y < -shot.displayHeight * 4 ||
-        shot.y > this.game.config.height + shot.displayHeight
+        shot.x < -shot.displayWidth
+        || shot.x > this.game.config.width + shot.displayWidth
+        || shot.y < -shot.displayHeight * 4
+        || shot.y > this.game.config.height + shot.displayHeight
       ) {
         if (shot) {
           shot.destroy();
@@ -111,7 +111,7 @@ class GameScene extends Phaser.Scene {
               player.onDestroy();
               enemyShots.destroy();
             }
-          }
+          },
         );
 
         this.physics.add.collider(
@@ -124,7 +124,7 @@ class GameScene extends Phaser.Scene {
               playerShot.destroy();
               enemyShot.destroy();
             }
-          }
+          },
         );
 
         this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
@@ -138,8 +138,6 @@ class GameScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
-
-    
   }
 
   update() {
