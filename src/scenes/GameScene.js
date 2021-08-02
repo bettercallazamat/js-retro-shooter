@@ -38,7 +38,7 @@ class GameScene extends Phaser.Scene {
       color: '#fff',
     });
 
-    // PLAYER SHOOTING
+    // PLAYER SHOOTING CHECK
     this.playerShots = this.add.group();
 
     for (let i = 0; i < this.playerShots.getChildren().length; i += 1) {
@@ -50,6 +50,25 @@ class GameScene extends Phaser.Scene {
         || shot.x > this.game.config.width + shot.displayWidth
         || shot.y < -shot.displayHeight * 4
         || shot.y > this.game.config.height + shot.displayHeight
+      ) {
+        if (shot) {
+          shot.destroy();
+        }
+      }
+    }
+
+    // ENEMY SHOOTING CHECK
+    this.enemyShots = this.add.group();
+
+    for (let i = 0; i < this.enemyShots.getChildren().length; i += 1) {
+      const shot = this.enemyShots.getChildren()[i];
+      shot.update();
+
+      if (
+        shot.x < -shot.displayWidth ||
+        shot.x > this.game.config.width + shot.displayWidth ||
+        shot.y < -shot.displayHeight * 4 ||
+        shot.y > this.game.config.height + shot.displayHeight
       ) {
         if (shot) {
           shot.destroy();
@@ -82,18 +101,45 @@ class GameScene extends Phaser.Scene {
             }
           },
         );
+
+        this.physics.add.collider(
+          this.enemyShots,
+          this.player,
+          (enemyShots, player) => {
+            if (player) {
+              player.explode(false, 'player-explosion');
+              player.onDestroy();
+              enemyShots.destroy();
+            }
+          }
+        );
+
+        this.physics.add.collider(
+          this.enemyShots,
+          this.playerShots,
+          (enemyShot, playerShot) => {
+            if (playerShot) {
+              score += 5;
+              this.playerScore.setText(`Score: ${score}`);
+              playerShot.destroy();
+              enemyShot.destroy();
+            }
+          }
+        );
+
+        this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
+          if (!player.getData('isDead') && !enemy.getData('isDead')) {
+            player.explode(false, 'player-explosion');
+            player.onDestroy();
+            enemy.explode(true, 'enemy-explosion');
+          }
+        });
       },
       callbackScope: this,
       loop: true,
     });
 
-    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
-      if (!player.getData('isDead') && !enemy.getData('isDead')) {
-        player.explode(false, 'player-explosion');
-        player.onDestroy();
-        enemy.explode(true, 'enemy-explosion');
-      }
-    });
+    
   }
 
   update() {
