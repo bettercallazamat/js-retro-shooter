@@ -12,10 +12,16 @@ test('returns the score of the first user', async () => {
   });
 });
 
-test('returns the username of added user and hes or hers score', async () => {
+test('returns the username of added user', async () => {
   postScore('John Doe', 100);
   getScores().then((scores) => {
     expect(scores[(scores.length - 1)].user).toEqual('John Doe');
+  });
+});
+
+test('returns the score of added user', async () => {
+  postScore('John Doe', 100);
+  getScores().then((scores) => {
     expect(scores[(scores.length - 1)].score).toEqual('100');
   });
 });
