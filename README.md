@@ -1,37 +1,70 @@
 # JS Retro Shooter
 
-> This project is a game inspired by the game "[ASTRO WARRIORS](https://en.wikipedia.org/wiki/Astro_Warrior/)" by SEGA. This game is built with JS ES6 and Phaser3.
+> This project is inspired by the game "[ASTRO WARRIORS](https://en.wikipedia.org/wiki/Astro_Warrior/)" by SEGA. The project is a vertically scrolling shooter. Set in space, the player flies a spaceship shooting enemy spaceships to reach the mother ship of an invasion force.
+
+## Game Design and Development Process
+
+The design and development process was a quite challange for me. 
+1. After I collected all required assets for project I started studying the best practices building games using Phaser framework. The main objectives were to decide how to organise code and modules should I have. 
+2. So main file is just starting Boot process and adding all required scenes (in separated files). 
+3. Next day I created basic templates for entities  that I need (player, enemies, buttons, lasers) and what shared functionality and atributes they should have.
+4. Then I focused on was how to handle the physics and motion frameworks it provides.
+5. Getting all together was about building the project while keeping the following concepts in mind:
+5.1. MVP - Building the main functionality before going further in implementing additional features.
+5.2. I made sure that the build was deployable by enabling it to work locally and via a hosting service.
+5.3. The visual aspect of the game is subject to change, I made sure I met all functionality requirements I laid out before proceeding.
 
 ## Features
+- Menu navigation
+- Game scene with player and enemy spaceships
+- Animations on player and enemies death
+- Scoring system
+- Game Over scene with form for saving scores
+- API implementation of Leaderboard
+- Retro style of SEGA games
 
-1. The player can navigate to the following scenes after the game loads
-1.1. `Credits`: This is where we give credits to the ASTRO WARRIOR and the creator of the game.
-1.2. `The Top`: The scene where top 5 players are displayed.
-1.3. `Play`: We navigate the guide scene and understand how to play the game before proceeding.
-2. A player can fire a laser to kill the enemy attacking.
-3. The enemy can also fire laser and kill the player.
-3. After the game is over, the player has the option to `restart` game and `submit` score by pressing `ENTER`.
+## Future Features
 
-## Future Feature (v2.02)
-
-1. Improve the UI
+1. Improve the UI of Menu navigation
+2. Background Music and sound effects
+3. Paralaxing Backgrounds
 2. Add levels to the game
 3. Each level should have a more attacking enemies and different types of them.
 
 ## Screenshots
 
-<img src="assets/maskman.png" alt="maskman">
+![screenshot1](./src/assets/screenshots/screenshot1.png)
+![screenshot2](/src/assets/screenshots/screenshot2.png)
 
 ## Built With
-
 - Javascript ES6
-- Phaser3
-- Babel
-- Webpack
+- Phaser 3 (Game Engine)
+- HTML & CSS
+- Webpack, npm & Babel
+- Eslint & Stylelint
 
 ## Live Demo
 
-[gh pages deployment](https://addod19.github.io/js_game_capstone/)
+[Check it out](https://shrouded-wildwood-43341.herokuapp.com/)
+
+## Navigation in Menu
+
+1. The player can navigate to the following scenes after the game loads
+1.1. `Credits`: This is where we give credits to the ASTRO WARRIOR and the creator of the game.
+1.2. `The Top`: The scene where top 5 players are displayed.
+1.3. `Play`: We navigate to the game scene.
+2. A player can fire a laser to kill the enemy.
+3. The enemy can also fire laser and kill the player.
+3. After the game is over, the player will be navigated to `Game over` scene where he/she has the option to enter a username and press `ENTER` to `submit and save` score .
+
+## Game Play
+
+1. Use the ← ↑ → ↓  arrow keys to control movements of ship/player
+1.1. Key Up is for moving upward
+1.2. Key Down is for moving downward
+1.3. Key Left is for moving backwards
+1.4. Key Right is for moving fowards
+2. Use the spacebar to shoot.
 
 ## Getting Started
 
@@ -47,17 +80,17 @@ To get a local copy up and running follow these simple example steps.
 - [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 - A modern browser
 
-
 ## Available Commands
 
 | Command | Description |
 |---------|-------------|
 | `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
+| `npm run start` | Build project and open web server with running project |
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+| `npm run test` | Runs unit tests using Jest framework |
 
 
-## Authors
+## Author
 
 👤 **Azamat Nuriddinov**
 
@@ -83,3 +116,4 @@ Give us a ⭐️ if you like this project!
 
 ## Acknowledgments
 - [Microverse](https://www.microverse.org/)
+- Developers at [Open Game Art](https://opengameart.org/) for the characters, sprites, lasers, etc.
