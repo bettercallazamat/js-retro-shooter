@@ -4,10 +4,10 @@
 
 ## Game Design and Development Process
 
-The design and development process was a quite challange for me. 
-1. After I collected all required assets for project I started studying the best practices building games using Phaser framework. The main objectives were to decide how to organise code and modules should I have. 
-2. So main file is just starting Boot process and adding all required scenes (in separated files). 
-3. Next day I created basic templates for entities  that I need (player, enemies, buttons, lasers) and what shared functionality and atributes they should have.
+The design and development process was a quite challenge for me. 
+1. After I collected all required assets for a project I started studying the best practices for building games using the Phaser framework. The main objectives were to decide how to organise code and modules should I have. 
+2. So the main file is just starting the Boot process and adding all required scenes (in separated files). 
+3. Next day I created basic templates for entities that I need (player, enemies, buttons, lasers) and what shared functionality and attributes they should have.
 4. Then I focused on was how to handle the physics and motion frameworks it provides.
 5. Getting all together was about building the project while keeping the following concepts in mind:
 5.1. MVP - Building the main functionality before going further in implementing additional features.
@@ -19,7 +19,7 @@ The design and development process was a quite challange for me.
 - Game scene with player and enemy spaceships
 - Animations on player and enemies death
 - Scoring system
-- Game Over scene with form for saving scores
+- Game Over scene with a form for saving scores
 - API implementation of Leaderboard
 - Retro style of SEGA games
 
@@ -29,7 +29,7 @@ The design and development process was a quite challange for me.
 2. Background Music and sound effects
 3. Paralaxing Backgrounds
 2. Add levels to the game
-3. Each level should have a more attacking enemies and different types of them.
+3. Each level should have more attacking enemies and different types of them.
 
 ## Screenshots
 

@@ -81,6 +81,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('button', 'src/assets/button.png');
     this.load.image('player-fire1', 'src/assets/player/fire1.png');
     this.load.image('enemy-fire1', 'src/assets/enemies/fire1.png');
+    this.load.image('enter', 'src/assets/enter.png');
+    this.load.image('arrow', 'src/assets/arrow.png');
 
     this.load.spritesheet('spaceship-1', 'src/assets/player/spaceship-1.png', { frameWidth: 100, frameHeight: 100 });
     this.load.spritesheet('player-explosion', 'src/assets/explosions/explosion2.png', { frameWidth: 150 });
