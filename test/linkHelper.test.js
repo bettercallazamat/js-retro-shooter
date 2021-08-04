@@ -1,4 +1,4 @@
-import { linkedInOpener, gitHubOpener } from '../src/helpers/linkHelper'
+import { linkedInOpener, gitHubOpener } from '../src/helpers/linkHelper';
 
 it('linkedInOpener is a function', () => {
   expect(typeof linkedInOpener).toBe('function');

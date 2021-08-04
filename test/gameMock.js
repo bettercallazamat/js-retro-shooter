@@ -7,7 +7,7 @@ import { GameScene } from '../src/scenes/GameScene';
 import MenuScene from '../src/scenes/MenuScene';
 import PreloaderScene from '../src/scenes/PreloaderScene';
 import TopScene from '../src/scenes/TopScene';
-import config from '../src/config'
+import config from '../src/config';
 
 const startGame = () => {
   config.scene = [
@@ -17,7 +17,7 @@ const startGame = () => {
     GameScene,
     MenuScene,
     PreloaderScene,
-    TopScene
+    TopScene,
   ];
 
   const game = new Phaser.Game(config);
