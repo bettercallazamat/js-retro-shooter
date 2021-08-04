@@ -28,7 +28,7 @@ export default class GameOverScene extends Phaser.Scene {
   update() {
     if (this.keyENTER.isDown) {
       const input = document.getElementById('fname').value;
-      if (score > 0 && input == '') {
+      if (score > 0 && input === '') {
         postScore(input, score);
       }
       this.element.classList.add('hidden');
