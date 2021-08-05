@@ -34,7 +34,7 @@ The design and development process was a quite challenge for me.
 ## Screenshots
 
 ![screenshot1](./src/assets/screenshots/screenshot1.png)
-![screenshot2](/src/assets/screenshots/screenshot2.png)
+![screenshot2](./src/assets/screenshots/screenshot2.png)
 
 ## Built With
 - Javascript ES6
@@ -45,7 +45,7 @@ The design and development process was a quite challenge for me.
 
 ## Live Demo
 
-[Check it out](https://shrouded-wildwood-43341.herokuapp.com/)
+[Check it out](https://bettercallazamat.github.io/js-retro-shooter/)
 
 ## Navigation in Menu
 
