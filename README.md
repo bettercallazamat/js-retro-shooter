@@ -45,7 +45,7 @@ The design and development process was a quite challenge for me.
 
 ## Live Demo
 
-[Check it out](https://bettercallazamat.github.io/js-retro-shooter/)
+[Check it out](cosmic-warriors.netlify.app)
 
 ## Navigation in Menu
 
