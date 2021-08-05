@@ -45,7 +45,7 @@ The design and development process was a quite challenge for me.
 
 ## Live Demo
 
-[Check it out](cosmic-warriors.netlify.app)
+[Check it out](https://cosmic-warriors.netlify.app/)
 
 ## Navigation in Menu
 
