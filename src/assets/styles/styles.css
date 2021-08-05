@@ -1,0 +1,24 @@
+#fname {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  text-align: center;
+  color: aqua;
+  padding: 15px;
+  border-radius: 10px;
+  border: 4px solid aqua;
+  text-transform: uppercase;
+  position: absolute;
+  top: 350px;
+  left: 280px;
+}
+
+.hidden {
+  display: none;
+}
+
+::placeholder {
+  color: aqua;
+  opacity: 1;
+  text-transform: uppercase;
+}
